@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!--custom css-->
+    <link href="StyleSheet.css" rel="stylesheet" />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <title>WiseStamp login</title>
+
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+
+
+            <!--envelope and text-->
+            <div class="col-xs-12 col-md-3">
+                <div class="envelope">
+                    <div class="paper">
+                    </div>
+                </div>
+                <div class="textContainer">
+                    <h5>Welcome to</h5>
+                    <h5 style="font-weight:bold">Mail App</h5>
+                </div>
+            </div>
+
+
+            <!--form-->
+            <div class="col-xs-10 col-md-6">
+                <div class="arrow_box up" id="form">
+                    <div class="form-group has-feedback">
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
+                        <i class="glyphicon glyphicon-user form-control-feedback"></i>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input type="password" class="form-control" placeholder="Enter Password" />
+                        <i class="glyphicon glyphicon-lock form-control-feedback"></i>
+                    </div>
+
+                    <button type="button" class="btn customBTN" id="load" data-loading-text="<span class='glyphicon glyphicon-repeat normal-right-spinner'></span>">Login</button>
+                    <div class="forgotPassContainer">
+                        <a href="ForgotPassword.html">Lost your password? </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('.btn').on('click', function () {
+                var $this = $(this);
+                $this.button('loading');
+                setTimeout(function () {
+                    $this.button('reset');
+                }, 3000);
+            });
+
+            switchToMobile();
+        })
+
+        $(window).resize(function () {
+            switchToMobile();
+        })
+
+        function switchToMobile() {
+            if (detectMobile()) {
+                $("#form").removeClass("left").addClass("up");
+            }
+            else {
+                $("#form").removeClass("up").addClass("left");
+            }
+        }
+
+
+        function detectMobile() {
+            if (window.innerWidth <= 990) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        
+    </script>
+
+
+</body>
+</html>
